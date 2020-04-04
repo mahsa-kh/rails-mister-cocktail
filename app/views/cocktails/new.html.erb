@@ -1,0 +1,24 @@
+<div class="banner" style='background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.1)), <%= image_tag 'banner.jpg'%>'>
+  <div class="container">
+     <h1>ADD A NEW COCKTAIL!</h1>
+      <p>Lets make some cocktail...</p>
+  </div>
+</div>
+
+
+<div class="navbar-lewagon">
+  <span class="navbar-brand">
+    <%= link_to "Add a new Cocktail", new_cocktail_path, class: "btn btn-ghost" %>
+    <%= link_to "Home", cocktails_path, class: "btn btn-ghost" %>
+   </span>
+</div>
+<div class="form-container">
+  <div class="f-space">
+    <%= simple_form_for @cocktail do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :name, class: "f-item-margin" %>
+      <%= f.button :submit, class: "btn-ghost f-item-margin" %>
+      <%= f.button :button, "Cancel", type: "reset", class: "btn-flat f-item-margin" %>
+    <% end %>
+  </div>
+</div>

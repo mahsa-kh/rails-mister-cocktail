@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  get 'ingredients/index'
+  get 'ingredients/show'
+  root to: 'cocktails#index'
+
+  resources :cocktails, only: [:new, :show, :index, :create] do
+    resources :doses, only: [ :create, :new]
+  end
+ resources :doses, only: [:destroy]
+
+ resources :ingredients, only: [:new, :show, :index, :create]
 end
-
-
-
-
-# Cocktails:
-# has_many :doses
-
-# validates :last_name, presenceL true

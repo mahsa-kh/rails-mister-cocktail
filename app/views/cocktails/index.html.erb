@@ -1,0 +1,26 @@
+<div class="banner" style='background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.1)), <%= image_tag 'banner.jpg'%>'>
+  <div class="container">
+    <h1>WELCOME TO MISTER COCKTAIL!</h1>
+    <p>Lets make some cocktail...</p>
+  </div>
+</div>
+
+<div class="navbar-lewagon">
+  <span class="navbar-brand">
+    <%= link_to "Add a new Cocktail", new_cocktail_path, class: "btn btn-ghost" %>
+    <%= link_to "View all Ingredients", ingredients_path, class: "btn btn-ghost" %>
+  </span>
+</div>
+
+<div class="card">
+  <%@cocktails.each do |c|%>
+    <div class="content">
+      <div class="card-description">
+        <%= link_to cocktail_path(c.id), class: "card-text" do %>
+          <%= c.name %>
+        <%end%>
+      </div>
+      <%= image_tag 'mojito.jpg', class: "card-img"%>
+    </div>
+  <%end%>
+</div>
