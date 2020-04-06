@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  post "/dose/banana", to: "doses#create", as: "banana_create"
 
   root to: 'cocktails#index'
 

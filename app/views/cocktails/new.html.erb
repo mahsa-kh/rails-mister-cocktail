@@ -12,13 +12,24 @@
     <%= link_to "Home", cocktails_path, class: "btn btn-ghost" %>
    </span>
 </div>
+
+
 <div class="form-container">
   <div class="f-space">
-    <%= simple_form_for @cocktail do |f| %>
-      <%= f.error_notification %>
-      <%= f.input :name, class: "f-item-margin" %>
-      <%= f.button :submit, class: "btn-ghost f-item-margin" %>
-      <%= f.button :button, "Cancel", type: "reset", class: "btn-flat f-item-margin" %>
-    <% end %>
+
+
+<%= form_for @cocktail, :html => {:class => "form-horizontal center"} do |f| %>
+      <div class="form-group">
+        <%= f.label :name, "Cocktail Name", class: "col-md-4 control-label" %>
+        <div class="col-md-8">
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+      </div>
+
+      <%= f.submit "Submit", class: "btn-gradient" %>
+ <% end %>
+
   </div>
 </div>
+
+

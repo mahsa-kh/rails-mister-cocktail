@@ -28,12 +28,14 @@
   </div>
 <% end %>
 
+
 <div class="notification">
   <div class="form-container form-group">
+
   <%= simple_form_for([@cocktail, @dose]) do |f| %>
     <%= f.error_notification %>
-    <%= f.input :description, required: false,  wrapper_html: { class: "f-item-margin" }  %>
-    <%= f.association :ingredient, wrapper_html: { class: "f-item-margin " }  %>
+    <%= f.input :description, required: false,  wrapper_html: { class: "f-item-margin form-control mb-2 mr-sm-2" }  %>
+    <%= f.association :ingredient, wrapper_html: { class: "f-item-margin form-control mb-2 mr-sm-2 " }  %>
     <%= f.submit class: "btn-ghost f-item-margin" %>
     <%= link_to "Go back", cocktails_path , class: "btn btn-ghost" %>
   <% end %>
