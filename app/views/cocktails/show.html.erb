@@ -43,10 +43,11 @@
 <div class="notification">
    <i class="fas fa-comments"></i>
     <div class="notification-content">
-      <small>SEE THE COMMENTS BELOW   -  Add a comment:
-      <%= link_to new_cocktail_review_path(@cocktail.id) do %>
+      <small>SEE THE COMMENTS BELOW   -     Add a comment:
+        <%= link_to new_cocktail_review_path(@cocktail.id) do %>
          <i class="far fa-plus-square"></i>
       <%end%>
+
     </small>
     </div>
   </div>
@@ -54,7 +55,11 @@
   <div class="notification">
    <i class="fas fa-comments"></i>
     <div class="notification-content">
-      <p><small><%= cocktail_reviews.rating %></small></p>
+      <p> <small>Rating: </small>
+        <% for i in (1..cocktail_reviews.rating.to_i) do %>
+         <small> <i class="fas fa-star"></i></small>
+        <%end%>
+      </p>
       <p><%= cocktail_reviews.content%></p>
     </div>
 
