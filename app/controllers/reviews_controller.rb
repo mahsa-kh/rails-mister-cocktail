@@ -12,7 +12,8 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.cocktail = @cocktail
     @review.save
-    redirect_to ingredients_path(@review)
+    # redirect_to ingredients_path(@review)
+    redirect_to cocktail_path(@cocktail)
     # end
   end
 
