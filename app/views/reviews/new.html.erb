@@ -1,9 +1,9 @@
 <div class="banner" style='background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.1)), <%= image_tag 'banner.jpg'%>'>
   <div class="container">
-    <h1>WELCOME TO MISTER COCKTAIL!</h1>
-    <p>Lets make some cocktail...</p>
+     <h1>ADD A REVIEW!</h1>
   </div>
 </div>
+
 
 <div class="navbar-lewagon">
   <span class="navbar-brand">
@@ -13,13 +13,14 @@
   </span>
 </div>
 
-
-  <%@ingredients.each do |i|%>
-    <div class="notification">
-        <i class="fab fa-ioxhost"></i>
-        <div class="notification-content">
-          <p><small><%= i.name %></small></p>
-          <p><%= link_to "View drinks made with this ingredient! ", ingredient_path(i.id), class: "link-text"%></p>
-        </div>
-      </div>
-  <%end%>
+<div class="form-container">
+  <div class="f-space">
+    <%= simple_form_for [@cocktail, @review] do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :content, class: "f-item-margin" %>
+      <%= f.input :rating, class: "f-item-margin" %>
+      <%= f.button :submit, class: "btn-ghost f-item-margin" %>
+      <%= f.button :button, "Cancel", type: "reset", class: "btn-flat f-item-margin" %>
+    <% end %>
+  </div>
+</div>

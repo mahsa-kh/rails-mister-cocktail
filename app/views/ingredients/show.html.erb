@@ -1,6 +1,7 @@
+
+
 <div class="navbar-lewagon">
-  <span class="navbar-brand">
-    <%= link_to "Add a new Cocktail", new_cocktail_path, class: "btn btn-ghost" %>
+  <span class="navbar-brand"><%= link_to "Add a new Cocktail", new_cocktail_path, class: "btn btn-ghost" %>
     <%= link_to "Back to Ingredients", ingredients_path, class: "btn btn-ghost" %>
     <%= link_to "Home", cocktails_path, class: "btn btn-ghost" %>
   </span>
@@ -8,13 +9,13 @@
 
 <div class="card">
   <%@ingredient.cocktails.each do |c|%>
-    <div class="content">
+    <div class="card-content">
       <div class="card-description">
         <%= link_to cocktail_path(c.id), class: "card-text" do %>
           <%= c.name %>
         <%end%>
       </div>
-      <%= image_tag 'mojito.jpg', class: "card-img"%>
+      <%= image_tag "#{c.name}.jpg", class: "card-img"%>
     </div>
   <%end%>
 </div>

@@ -3,33 +3,39 @@
   justify-content: space-around;
   flex-direction: row;
   flex-wrap: wrap;
+  background-color: #f1f3f4;
 }
 
 
-.content {
+.card-content {
+  background-color: white;
   position: relative;
   flex: 0 0 auto;
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   margin: 20px;
-  border: 1px gray;
-  border-style: solid;
-  border-radius: 6px;
+  box-shadow: 7px 4px 25px -9px rgba(0,0,0,0.3);
+  border-radius: 9px;
   display: flex;
   flex-direction: row;
+}
+
+.card-content:hover {
+  background-color: #f1f3f4;
 }
 
 .card-description {
 
   position: absolute;
-  bottom: 10px;
-  left: 15px;
-  font-size: 16px;
-  font-weight: bold;
-  margin-left: 8px;
+  bottom: 45px;
+  left: 20px;
+  font-size: 22px;
+  font-weight: lighter;
+  margin-left: 16px;
   flex: 0 0 auto;
+
   .card-text{
-    color: gray;
+    color: #8db1ab;
   }
 
   .card-text:hover{
@@ -40,14 +46,42 @@
 
 
 .card-img {
-  width: 150px;
-  height: 150px;
-  margin: 8px;
-  opacity: 0.8;
+  width: 200px;
+  height: 180px;
+  margin: 16px;
+  opacity: 0.7;
   position: absolute;
   left: 15px;
   border-radius: 2px;
 }
+
+
+
+.review-text {
+  color: #bbbbbb;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 16px;
+}
+
+.fa-plus-square{
+  color: #f2ed6f;
+  font-size: 35px;
+  font-weight: bold;
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  opacity: 0.8;
+}
+
+
+
+
+
+
 
 
 .card-product {

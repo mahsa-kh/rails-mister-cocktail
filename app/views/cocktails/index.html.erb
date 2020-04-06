@@ -14,13 +14,21 @@
 
 <div class="card">
   <%@cocktails.each do |c|%>
-    <div class="content">
+    <div class="card-content">
       <div class="card-description">
         <%= link_to cocktail_path(c.id), class: "card-text" do %>
           <%= c.name %>
         <%end%>
       </div>
-      <%= image_tag 'mojito.jpg', class: "card-img"%>
+      <span class="review-text">Reviews</span>
+      <span class="add-review">
+        <%= link_to new_cocktail_review_path(c.id), class: "card-text" do %>
+         <i class="far fa-plus-square"></i>
+        <%end%>
+      </span>
+      <!-- <%= image_tag "#{c.name}.jpg", class: "card-img"%> -->
+      <%= image_tag "Caramel.jpg", class: "card-img"%>
+
     </div>
   <%end%>
 </div>

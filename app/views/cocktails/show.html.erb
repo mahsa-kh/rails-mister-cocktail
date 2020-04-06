@@ -4,7 +4,13 @@
 <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
   <%= @cocktail.name %>
 </div>
-
+<div class="navbar-lewagon">
+  <span class="navbar-brand">
+    <%= link_to "Add a new Cocktail", new_cocktail_path, class: "btn btn-ghost" %>
+    <%= link_to "Add a new Ingredient", new_ingredient_path, class: "btn btn-ghost" %>
+    <%= link_to "Home", cocktails_path, class: "btn btn-ghost" %>
+  </span>
+</div>
 
 <% @cocktail.doses.each do |cocktail_dose| %>
   <div class="notification">
@@ -33,3 +39,25 @@
   <% end %>
 </div>
 </div>
+
+<div class="notification">
+   <i class="fas fa-comments"></i>
+    <div class="notification-content">
+      <small>SEE THE COMMENTS BELOW   -  Add a comment:
+      <%= link_to new_cocktail_review_path(@cocktail.id) do %>
+         <i class="far fa-plus-square"></i>
+      <%end%>
+    </small>
+    </div>
+  </div>
+<% @cocktail.reviews.each do |cocktail_reviews| %>
+  <div class="notification">
+   <i class="fas fa-comments"></i>
+    <div class="notification-content">
+      <p><small><%= cocktail_reviews.rating %></small></p>
+      <p><%= cocktail_reviews.content%></p>
+    </div>
+
+  </div>
+<% end %>
+
