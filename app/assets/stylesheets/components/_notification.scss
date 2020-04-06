@@ -7,6 +7,13 @@
   border: 1px solid rgb(235,235,235);
 }
 
+.notification-form {
+  background: #f1f3f4;
+  align: center;
+  margin-left: 450px;
+  padding: 20px;
+}
+
 .notification .notification-content {
   flex-grow: 1;
   padding: 0 24px;
@@ -21,6 +28,16 @@
   color: #999999;
   font-weight: bold;
 }
+
+ .notification .card-text{
+    color: #8db1ab;
+  }
+
+ .notification .card-text:hover{
+    text-decoration: none;
+    opacity: 0.8;
+  }
+
 .notification .notification-actions {
   opacity: 0;
   display: flex;

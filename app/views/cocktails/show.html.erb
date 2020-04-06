@@ -11,7 +11,11 @@
     <%= link_to "Home", cocktails_path, class: "btn btn-ghost" %>
   </span>
 </div>
-
+  <div class="notification">
+    <div class="notification-content"> Ingredients:
+    <i class="fab fa-ioxhost"></i>
+  </div>
+  </div>
 <% @cocktail.doses.each do |cocktail_dose| %>
   <div class="notification">
     <i class="fab fa-ioxhost"></i>
@@ -30,26 +34,34 @@
 
 
 <div class="notification">
-  <div class="form-container form-group">
+  <div class="notification-form">
+  <div class="form-container simple_form search">
 
   <%= simple_form_for([@cocktail, @dose]) do |f| %>
     <%= f.error_notification %>
-    <%= f.input :description, required: false,  wrapper_html: { class: "f-item-margin form-control mb-2 mr-sm-2" }  %>
-    <%= f.association :ingredient, wrapper_html: { class: "f-item-margin form-control mb-2 mr-sm-2 " }  %>
+
+  <div class="search-form-control form-group">
+    <%= f.input :description, required: false,  wrapper_html: { class: "form-control string required" }  %>
+  </div>
+  <div class="search-form-control form-group">
+    <%= f.association :ingredient, wrapper_html: { class: "form-control string required" }  %>
+  </div>
     <%= f.submit class: "btn-ghost f-item-margin" %>
-    <%= link_to "Go back", cocktails_path , class: "btn btn-ghost" %>
+    <%= link_to "Go back", cocktails_path , class: "btn btn-flat" %>
   <% end %>
 </div>
 </div>
+</div>
+
+
 
 <div class="notification">
    <i class="fas fa-comments"></i>
     <div class="notification-content">
-      <small>SEE THE COMMENTS BELOW   -     Add a comment:
-        <%= link_to new_cocktail_review_path(@cocktail.id) do %>
-         <i class="far fa-plus-square"></i>
+      <small>SEE THE COMMENTS BELOW
+        <%= link_to new_cocktail_review_path(@cocktail.id), class: "card-text" do %>
+        <p> Add a comment </p>
       <%end%>
-
     </small>
     </div>
   </div>
