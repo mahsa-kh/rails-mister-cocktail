@@ -1,8 +1,11 @@
 
+<div class="banner" style='background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.1)), url(https://st2.depositphotos.com/5857850/9043/v/950/depositphotos_90436236-stock-illustration-cocktails-set-cocktail-bar-cartoon.jpg)'>
+  <div class="container">
+    <h1> Lets add ingredients to ... <%= @cocktail.name %></h1>
 
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://st2.depositphotos.com/5857850/9043/v/950/depositphotos_90436236-stock-illustration-cocktails-set-cocktail-bar-cartoon.jpg)">
-  <%= @cocktail.name %>
+  </div>
 </div>
+
 <div class="navbar-lewagon">
   <span class="navbar-brand">
     <%= link_to "Add a new Cocktail", new_cocktail_path, class: "btn btn-ghost" %>
@@ -12,36 +15,34 @@
 </div>
   <div class="notification notification-bg">
     <div class="notification-content"> Ingredients:
-    <i class="fas fa-cocktail"></i>
+    <i class="fab fa-ioxhost"></i>
   </div>
   </div>
-
 <% @cocktail.doses.each do |cocktail_dose| %>
-   <div class="notification notification-bg">
-    <i class="fas fa-cocktail"></i>
+  <div class="notification notification-bg">
+    <i class="fab fa-ioxhost"></i>
     <div class="notification-content">
-      <p><small><%= cocktail_dose.ingredient.name %></small>
-     <%= cocktail_dose.description %>
+      <p><small><%= cocktail_dose.ingredient.name %></small></p>
+      <p><%= cocktail_dose.description %></p>
     </div>
 
     <div class="notification-actions">
       <%= link_to  dose_path(cocktail_dose.id), method: :delete do %>
-      Delete <i class="far fa-trash-alt"></i> </p>
+      Delete <i class="far fa-trash-alt"></i>
       <%end%>
     </div>
   </div>
 <% end %>
 
-<!-- ***********HERE************* -->
-
 
 <div class="notification">
   <div class="notification-form">
   <div class="form-container simple_form search">
-    <%= cl_image_tag @cocktail.photo.key, height: 300, width: 300, crop: :fill, class:"single-img" %>
-  <%= simple_form_for([@cocktail, @dose]) do |f| %>
-    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
+  <%= simple_form_for([@cocktail, @dose]) do |f| %>
+  <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <%= cl_image_tag @cocktail.photo.key, height: 300, width: 300, crop: :fill, class:"single-img" %>
   <div class="search-form-control form-group">
     <%= f.input :description, required: false,  wrapper_html: { class: "form-control string required" }  %>
   </div>
@@ -54,28 +55,3 @@
 </div>
 </div>
 </div>
-
-
-
-<div class="notification">
-    <div class="notification-content">
-        <%= link_to new_cocktail_review_path(@cocktail.id), class: "card-text" do %>
-        <p> ADD A COMMENT!</p>
-      <%end%>
-    </div>
-  </div>
-<% @cocktail.reviews.each do |cocktail_reviews| %>
-  <div class="notification">
-   <i class="fas fa-comments"></i>
-    <div class="notification-content">
-      <p> <small>Rating: </small>
-        <% for i in (1..cocktail_reviews.rating.to_i) do %>
-         <small> <i class="fas fa-star"></i></small>
-        <%end%>
-      </p>
-      <p><%= cocktail_reviews.content%></p>
-    </div>
-
-  </div>
-<% end %>
-

@@ -1,4 +1,9 @@
+<div class="banner" style='background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.1)), url(https://st2.depositphotos.com/5857850/9043/v/950/depositphotos_90436236-stock-illustration-cocktails-set-cocktail-bar-cartoon.jpg)'>
+  <div class="container">
+    <h1> You can make these cocktails with ... <%= @ingredient.name %></h1>
 
+  </div>
+</div>
 
 <div class="navbar-lewagon">
   <span class="navbar-brand"><%= link_to "Add a new Cocktail", new_cocktail_path, class: "btn btn-ghost" %>
@@ -15,7 +20,7 @@
           <%= c.name %>
         <%end%>
       </div>
-      <%= image_tag "#{c.name}.jpg", class: "card-img"%>
+      <%= cl_image_tag c.photo.key, height: 300, width: 300, crop: :fill, class:"card-img" %>
     </div>
   <%end%>
 </div>

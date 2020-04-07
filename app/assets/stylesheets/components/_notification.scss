@@ -7,6 +7,10 @@
   border: 1px solid rgb(235,235,235);
 }
 
+
+.notification-bg {
+  background-color: #dfddc7;
+}
 .notification-form {
   background: #f1f3f4;
   align: center;
@@ -17,18 +21,24 @@
 .notification .notification-content {
   flex-grow: 1;
   padding: 0 24px;
+  color: #522d5b;
 }
 
 .notification p {
   margin: 0;
   line-height: 1.4;
+  color: #522d5b;
 }
 
 .notification small {
   color: #999999;
   font-weight: bold;
+  color: #522d5b;
 }
 
+.fa-trash-alt{
+  color: #522d5b;
+}
  .notification .card-text{
     color: #8db1ab;
   }
@@ -39,13 +49,14 @@
   }
 
 .notification .notification-actions {
-  opacity: 0;
-  display: flex;
+  opacity: 2;
   transition: ease .3s;
+  margin-right: 8px;
+  color: #522d5b;
 }
 
 .notification:hover .notification-actions {
-  opacity: 1;
+  opacity: 5;
 }
 
 .notification .notification-actions a {
@@ -80,4 +91,10 @@
 
 .fa-star {
   color: #f2ed6f;
+}
+
+.alert-box .alert {
+  position: absolute !important;
+  top: 200px !important;
+
 }

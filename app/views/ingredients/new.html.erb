@@ -1,10 +1,10 @@
-<div class="banner" style='background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.1)), <%= image_tag 'banner.jpg'%>'>
+
+<div class="banner" style='background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.1)), url(https://st2.depositphotos.com/5857850/9043/v/950/depositphotos_90436236-stock-illustration-cocktails-set-cocktail-bar-cartoon.jpg)'>
   <div class="container">
-     <h1>ADD A NEW INGREDIENT!</h1>
-      <p>Lets make some cocktail...</p>
+    <h1> Add a New Ingredient to Mister Cocktail!!</h1>
+
   </div>
 </div>
-
 
 <div class="navbar-lewagon">
   <span class="navbar-brand">
@@ -15,8 +15,10 @@
 </div>
 <div class="form-container">
     <div class="f-space">
-  <%= form_for @ingredient, :html => {:class => "form-horizontal center"} do |f| %>
+  <%= simple_form_for @ingredient, :html => {:class => "form-horizontal center"} do |f| %>
       <div class="form-group">
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
         <%= f.label :name, "Ingredient:", class: "col-md-4 control-label" %>
         <div class="col-md-8">
           <%= f.text_field :name, class: "form-control" %>
