@@ -18,12 +18,16 @@
   <div class="f-space">
 
 
-<%= form_for @cocktail, :html => {:class => "form-horizontal center"} do |f| %>
+<%= simple_form_for @cocktail, :html => {:class => "form-horizontal center"} do |f| %>
       <div class="form-group">
         <%= f.label :name, "Cocktail Name", class: "col-md-4 control-label" %>
         <div class="col-md-8">
           <%= f.text_field :name, class: "form-control" %>
         </div>
+        <div class="col-md-8">
+          <!-- HERE, I SAY ACCEPT A PHOTO AND IT IS AFILE -->
+        <%=  f.input :photo, as: :file %>
+      </div>
       </div>
 
       <%= f.submit "Submit", class: "btn btn-flat" %>

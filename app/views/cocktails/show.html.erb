@@ -31,7 +31,8 @@
     </div>
   </div>
 <% end %>
-
+<!-- ***********HERE************* -->
+<%= cl_image_tag @cocktails.first.photo.key, height: 300, width: 300, crop: :fill %>
 
 <div class="notification">
   <div class="notification-form">
